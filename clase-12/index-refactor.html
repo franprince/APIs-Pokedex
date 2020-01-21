@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Pokedex</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="style-refactor.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">
+        <img src="img/pokeball.png" alt="" srcset=""> <h3>Pokedex</h3>
+      </div>
+      <input id="buscar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      <div class="list-group list-group-flush container-lista">
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <div id="container-principal" class="container-fluid">
+        <div class="row">
+        <div id="container-pokemon" class="col-6 mx-auto lign-self-center">
+          <h1 class="mt-4 text-center">Seleccioná un pokemon de la lista para ver su información</h1>
+        </div>
+        <!-- <div id="container-pokemon" class="card mx-auto mt-5" style="width: 30%;">
+          <h2 id="nombre-pokemon" class="card-title text-center">Card title</h2>
+          <div id="container-badge-tipo-pokemon" class="container">
+            <span class="badge badge-success">Pasto</span><span class="badge badge-danger">Coso</span>
+          </div>
+          <img id="foto-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" class="card-img-top" alt="...">
+          <div id="container-descripcion-peso-altura" class="card-body">
+            <div id="container-peso-altura" class="row">
+              <div id="peso" class="text-center m-0 p-0 col-6 border">Peso: 20KG</div>
+              <div id="altura" class="col-6 border">Altura: 170CM</div>
+            </div>
+            <p id="descripcion" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas est reprehenderit rerum eveniet sapiente sunt nihil eos voluptatem nostrum! Nisi ut labore non facere necessitatibus iure nostrum repellat minima similique?</p>
+          </div>
+        </div> -->
+      </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="pokedex-refactor.js"></script>
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

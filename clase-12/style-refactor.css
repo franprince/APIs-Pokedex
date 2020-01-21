@@ -1,0 +1,109 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+ 
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.sidebar-heading img, .sidebar-heading h3{
+  display: inline;
+}
+
+.badge.normal{
+  background-color: #A8A878;
+}
+.badge.fire{
+  background-color: #F08030;
+}
+.badge.fighting{
+  background-color: #C03028;
+}
+.badge.water{
+  background-color: #6890F0;
+}
+.badge.flying{
+  background-color: #A890F0;
+}
+.badge.grass{
+  background-color: #78C850;
+}
+.badge.poison{
+  background-color: #A040A0;
+}
+.badge.electric{
+  background-color: #F8D030;
+}
+.badge.ground{
+  background-color: #E0C068;
+}
+.badge.psychic{
+  background-color: #F85888;
+}
+.badge.rock{
+  background-color: #B8A038;
+}
+.badge.ice{
+  background-color: #98D8D8;
+}
+.badge.bug{
+  background-color: #A8B820;
+}
+.badge.dragon{
+  background-color: #7038F8;
+}
+.badge.ghost{
+  background-color: #705898;
+}
+.badge.dark{
+  background-color: #705848;
+}
+.badge.steel{
+  background-color: #B8B8D0;
+}
+.badge.fairy{
+  background-color: #EE99AC;
+}

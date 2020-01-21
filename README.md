@@ -1,4 +1,4 @@
 Proyecto Pokedex:
 
-![alt text](./src/img/pokedex-screenshot/jpg)
+![alt text](/src/img/pokedex-screenshot.jpg)
 

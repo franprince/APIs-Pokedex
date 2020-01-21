@@ -1,6 +1,4 @@
-# JavaScript intermedio
+Proyecto Pokedex:
 
-# Clase 12
-
-jQuery, promesas, APIs.
+![alt text](./src/img/pokedex-screenshot/jpg)
 

@@ -74,7 +74,7 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado) {
     const containerPokemon = $('<div id="container-pokemon" class="card mx-auto mt-5"></div>'),
         nombrePokemon = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Cargando...</h2>'),
         containerBadgeTipoPokemon = $('<div id="container-badge-tipo-pokemon" class="container"></div>'),
-        fotoPokemon = $('<img id="foto-pokemon" src="./img/loading.gif" class="card-img-top" alt="">'),
+        fotoPokemon = $('<img id="foto-pokemon" src="./src/img/loading.gif" class="card-img-top" alt="">'),
         containerPesoAlturaDescripcion = $('<div id="container-descripcion-peso-altura" class="card-body"></div>'),
         containerPesoAltura = $('<div id="container-peso-altura" class="row"></div>'),
         pesoPokemon = $('<div id="pesoPokemon" class="text-center pt-3 col-6 border-top">Cargando...</div>'),

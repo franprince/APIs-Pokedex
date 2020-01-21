@@ -73,8 +73,7 @@ function obtenerInfoDelPokemonSeleccionado(id) {
 };
 
 function mostrarPokemonSeleccionado(pokemonSeleccionado){
-    console.log(pokemonSeleccionado)
-    const   containerPokemon                = $('<div id="container-pokemon" class="card mx-auto mt-5" style="width: 30%;"></div>'),
+    const   containerPokemon                = $('<div id="container-pokemon" class="card mx-auto mt-5" style="width: 40%;"></div>'),
             nombrePokemon                   = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Cargando...</h2>'),
             containerBadgeTipoPokemon       = $('<div id="container-badge-tipo-pokemon" class="container"></div>'),
             fotoPokemon                     = $('<img id="foto-pokemon" src="./img/loading.gif" class="card-img-top" alt="">'),
@@ -97,7 +96,6 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado){
 
         for(let i = 0; i< pokemonSeleccionado.tipos.length; i++){
             containerBadgeTipoPokemon.append($('<span class="badge pb-1 '+pokemonSeleccionado.tipos[i]+'">'+pokemonSeleccionado.tipos[i]+'</span>'));
-            console.log(pokemonSeleccionado.tipos[i]);
         }
        
     containerPokemon.append(fotoPokemon);

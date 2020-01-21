@@ -2,7 +2,7 @@
   "name": "clase-12",
   "version": "1.0.0",
   "description": "",
-  "main": "index-refactor.html",
+  "main": "index.html",
   "scripts": {
     "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"

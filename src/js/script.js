@@ -8,11 +8,11 @@ let id = 1 + offset;
 pokemonData = {};
 
 function cargarListaPokemon() {
-    fetch(urlPokemon + '?offsset=140' + offset + "&limit=" + limite)
+    fetch(urlPokemon + '?offsset=' + offset + "&limit=" + limite)
         .then(res => res.json())
         .then(pokemon => {
             pokemon.results.forEach((element) => {
-                const $listaNombrePokemon = $('<a href="#" id="'+id+'" class="text-capitalize list-group-item list-group-item-action bg-light elemento-lista-pokemon">Cargando...</a>');
+                const $listaNombrePokemon = $('<a href="#" id="' + id + '" class="text-capitalize list-group-item list-group-item-action bg-light elemento-lista-pokemon">Cargando...</a>');
                 $listaContainer.append($listaNombrePokemon);
                 $listaNombrePokemon.text(element.name);
                 id++;
@@ -25,15 +25,15 @@ function cargarListaPokemon() {
 function obtenerInfoDelPokemonSeleccionado(id) {
 
     const pokemonInfo = {
-            id: null,
-            nombre: "",
-            descripcion: "",
-            habilidades: [],
-            altura: null,
-            peso: null,
-            tipos: [],
-            foto: ""
-        };
+        id: null,
+        nombre: "",
+        descripcion: "",
+        habilidades: [],
+        altura: null,
+        peso: null,
+        tipos: [],
+        foto: ""
+    };
 
     fetch(urlPokemon + '/' + id)
         .then(res => res.json())
@@ -42,50 +42,48 @@ function obtenerInfoDelPokemonSeleccionado(id) {
 
             pokemonInfo.nombre = pokemon.name;
 
-            pokemon.abilities.forEach(habilidad=>{
+            pokemon.abilities.forEach(habilidad => {
                 pokemonInfo.habilidades.push(habilidad.ability.name);
             });
 
             pokemonInfo.altura = pokemon.height * 10; //Según la documentación altura está expresada en decímetros. La paso a centímetros.
-            
-            pokemonInfo.peso = pokemon.weight /10; //Se pasa el peso de hectogramos a kilogramos.
-            pokemon.types.forEach(tipo=>{
+
+            pokemonInfo.peso = pokemon.weight / 10; //Se pasa el peso de hectogramos a kilogramos.
+            pokemon.types.forEach(tipo => {
                 pokemonInfo.tipos.push(tipo.type.name);
             });
 
             pokemonInfo.foto = pokemon.sprites.front_default;
 
-            fetch("https://pokeapi.co/api/v2/pokemon-species/" + id)
-            .then(res => res.json())
-            .then(pokemonSpecies => {
-                pokemonSpecies.flavor_text_entries.some(flavor => {
-                    if (flavor.language.name === "es") {
-                        return pokemonInfo.descripcion = flavor.flavor_text;
-                    }
+            return fetch("https://pokeapi.co/api/v2/pokemon-species/" + id)
+                .then(res => res.json())
+                .then(pokemonSpecies => {
+                    pokemonSpecies.flavor_text_entries.some(flavor => {
+                        if (flavor.language.name === "es") {
+                            return pokemonInfo.descripcion = flavor.flavor_text;
+                        }
+                    })
+                    mostrarPokemonSeleccionado(pokemonInfo);
                 })
-                mostrarPokemonSeleccionado(pokemonInfo);
-            })
-            
-            .catch(error => console.error("Hubo un error: ", error));
-            
+
         })
-    .catch(error => console.error("Hubo un error: ", error));
+        .catch(error => console.error("Hubo un error: ", error));
 };
 
-function mostrarPokemonSeleccionado(pokemonSeleccionado){
-    const   containerPokemon                = $('<div id="container-pokemon" class="card mx-auto mt-5" style="width: 40%;"></div>'),
-            nombrePokemon                   = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Cargando...</h2>'),
-            containerBadgeTipoPokemon       = $('<div id="container-badge-tipo-pokemon" class="container"></div>'),
-            fotoPokemon                     = $('<img id="foto-pokemon" src="./img/loading.gif" class="card-img-top" alt="">'),
-            containerPesoAlturaDescripcion  = $('<div id="container-descripcion-peso-altura" class="card-body"></div>'),
-            containerPesoAltura             = $('<div id="container-peso-altura" class="row"></div>'),
-            pesoPokemon                     = $('<div id="pesoPokemon" class="text-center pt-3 col-6 border-top">Cargando...</div>'),
-            alturaPokemon                   = $('<div id="alturaPokemon" class="col-6 pt-3 border-top text-center">Cargando...</div>'),
-            descripcionPokemon              = $('<p id="descripcion" class="card-text mt-3">Cargando...</p>');
+function mostrarPokemonSeleccionado(pokemonSeleccionado) {
+    const containerPokemon = $('<div id="container-pokemon" class="card mx-auto mt-5"></div>'),
+        nombrePokemon = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Cargando...</h2>'),
+        containerBadgeTipoPokemon = $('<div id="container-badge-tipo-pokemon" class="container"></div>'),
+        fotoPokemon = $('<img id="foto-pokemon" src="./img/loading.gif" class="card-img-top" alt="">'),
+        containerPesoAlturaDescripcion = $('<div id="container-descripcion-peso-altura" class="card-body"></div>'),
+        containerPesoAltura = $('<div id="container-peso-altura" class="row"></div>'),
+        pesoPokemon = $('<div id="pesoPokemon" class="text-center pt-3 col-6 border-top">Cargando...</div>'),
+        alturaPokemon = $('<div id="alturaPokemon" class="col-6 pt-3 border-top text-center">Cargando...</div>'),
+        descripcionPokemon = $('<p id="descripcion" class="card-text mt-3">Cargando...</p>');
 
-    
 
-    if($("#container-pokemon")){
+
+    if ($("#container-pokemon")) {
         $("#container-pokemon").remove();
     };
 
@@ -94,10 +92,10 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado){
     nombrePokemon.text(pokemonSeleccionado.nombre);
     containerPokemon.append(containerBadgeTipoPokemon);
 
-        for(let i = 0; i< pokemonSeleccionado.tipos.length; i++){
-            containerBadgeTipoPokemon.append($('<span class="badge pb-1 '+pokemonSeleccionado.tipos[i]+'">'+pokemonSeleccionado.tipos[i]+'</span>'));
-        }
-       
+    for (let i = 0; i < pokemonSeleccionado.tipos.length; i++) {
+        containerBadgeTipoPokemon.append($('<span class="badge pb-1 ' + pokemonSeleccionado.tipos[i] + '">' + pokemonSeleccionado.tipos[i] + '</span>'));
+    }
+
     containerPokemon.append(fotoPokemon);
     fotoPokemon.attr("src", pokemonSeleccionado.foto);
     containerPokemon.append(containerPesoAlturaDescripcion);
@@ -125,14 +123,19 @@ $listaPokemon.onclick = function (e) {
 
 $("#buscar").on("keyup", function () {
     if (this.value.length > 0) {
-        $listaContainer.each(function(){
-          $(this).children().hide().filter(function () {
-            return $(this).text().toLowerCase().lastIndexOf($("#buscar").val().toLowerCase(),0)==  0;
-          }).show();
-      });
-    
+        $listaContainer.each(function () {
+            $(this).children().hide().filter(function () {
+                return $(this).text().toLowerCase().lastIndexOf($("#buscar").val().toLowerCase(), 0) == 0;
+            }).show();
+        });
+
     }
     else {
-      $(".container-lista").show();
+        $(".container-lista").show();
     }
+});
+
+$("#menu-toggle").click(function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
 });

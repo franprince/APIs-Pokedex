@@ -15,6 +15,11 @@ body {
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  position: fixed;
+  width: auto;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -106,4 +111,8 @@ body {
 }
 .badge.fairy{
   background-color: #EE99AC;
+}
+#container-pokemon{
+  height: auto;
+  width: 35rem;
 }

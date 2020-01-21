@@ -75,14 +75,14 @@ function obtenerInfoDelPokemonSeleccionado(id) {
 function mostrarPokemonSeleccionado(pokemonSeleccionado){
     console.log(pokemonSeleccionado)
     const   containerPokemon                = $('<div id="container-pokemon" class="card mx-auto mt-5" style="width: 30%;"></div>'),
-            nombrePokemon                   = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Card title</h2>'),
+            nombrePokemon                   = $('<h2 id="nombre-pokemon" class="card-title pt-3 text-capitalize text-center">Cargando...</h2>'),
             containerBadgeTipoPokemon       = $('<div id="container-badge-tipo-pokemon" class="container"></div>'),
-            fotoPokemon                     = $('<img id="foto-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" class="card-img-top" alt="...">'),
+            fotoPokemon                     = $('<img id="foto-pokemon" src="./img/loading.gif" class="card-img-top" alt="">'),
             containerPesoAlturaDescripcion  = $('<div id="container-descripcion-peso-altura" class="card-body"></div>'),
             containerPesoAltura             = $('<div id="container-peso-altura" class="row"></div>'),
-            pesoPokemon                     = $('<div id="pesoPokemon" class="text-center pt-3 col-6 border-top">Peso: 20KG</div>'),
-            alturaPokemon                   = $('<div id="alturaPokemon" class="col-6 pt-3 border-top text-center">Altura: 170CM</div>'),
-            descripcionPokemon              = $('<p id="descripcion" class="card-text mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas est reprehenderit rerum eveniet sapiente sunt nihil eos voluptatem nostrum! Nisi ut labore non facere necessitatibus iure nostrum repellat minima similique?</p>');
+            pesoPokemon                     = $('<div id="pesoPokemon" class="text-center pt-3 col-6 border-top">Cargando...</div>'),
+            alturaPokemon                   = $('<div id="alturaPokemon" class="col-6 pt-3 border-top text-center">Cargando...</div>'),
+            descripcionPokemon              = $('<p id="descripcion" class="card-text mt-3">Cargando...</p>');
 
     
 
@@ -125,7 +125,7 @@ $listaPokemon.onclick = function (e) {
     };
 };
 
-$("#buscar").on("keyup input", function () {
+$("#buscar").on("keyup", function () {
     if (this.value.length > 0) {
         $listaContainer.each(function(){
           $(this).children().hide().filter(function () {

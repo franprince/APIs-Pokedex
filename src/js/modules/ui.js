@@ -1,25 +1,5 @@
 const $listaContainer = $('.container-lista');
-
 const urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
-
-const offset = 0;
-const limite = 807;
-let id = 1 + offset;
-
-
-function cargarListaPokemon() {
-	fetch(`${urlPokemon}?offsset=${offset}&limit=${limite}`)
-		.then((res) => res.json())
-		.then((pokemon) => {
-			pokemon.results.forEach((element) => {
-				const $listaNombrePokemon = $(`<a href="#" id="${id}" class="text-capitalize list-group-item list-group-item-action bg-light elemento-lista-pokemon">Cargando...</a>`);
-				$listaContainer.append($listaNombrePokemon);
-				$listaNombrePokemon.text(element.name);
-				id++;
-			});
-		})
-		.catch((error) => console.error('Hubo un error: ', error));
-}
 
 function mostrarPokemonSeleccionado(pokemonSeleccionado) {
 	const containerPokemon = $('<div id="container-pokemon" class="card mx-auto mt-5"></div>');
@@ -59,4 +39,4 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado) {
 	descripcionPokemon.text(pokemonSeleccionado.descripcion);
   }
 
-export { cargarListaPokemon, mostrarPokemonSeleccionado, $listaContainer, urlPokemon };
+export {  mostrarPokemonSeleccionado, $listaContainer, urlPokemon };

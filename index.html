@@ -8,29 +8,21 @@
 
   <title>Pokedex</title>
 
-  <!-- Bootstrap core CSS -->
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.css">
   <link href="src/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
+  <div class="jumbotron">
+    <h1 class="display-3">Encontrá tu pokemon</h1>
 
+    <hr class="my-2">
+
+    <input id="autoComplete" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+  </div>
   <div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">
-        <img src="img/pokeball.png" alt="" srcset="">
-        <h3>Pokedex</h3>
-      </div>
-      <input id="buscar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-      <div class="list-group list-group-flush container-lista">
-      </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -51,6 +43,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
   <script src="src/js/script.js" type="module"></script>
 
 </body>

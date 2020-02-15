@@ -1,6 +1,7 @@
 import { mostrarPokemonSeleccionado, urlPokemon } from './ui.js'
 
 function obtenerInfoDelPokemonSeleccionado(id) {
+    const urlImagenes = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"
     const pokemonInfo = {
         id: null,
         nombre: '',
@@ -10,6 +11,10 @@ function obtenerInfoDelPokemonSeleccionado(id) {
         peso: null,
         tipos: [],
         foto: '',
+    };
+
+    function agregarCeros(numero, digitos) {
+        return Array(Math.max(digitos - String(numero).length + 1, 0)).join(0) + numero;
     };
 
     fetch(`${urlPokemon}/${id}`)
@@ -29,7 +34,7 @@ function obtenerInfoDelPokemonSeleccionado(id) {
                 pokemonInfo.tipos.push(tipo.type.name);
             });
 
-            pokemonInfo.foto = pokemon.sprites.front_default;
+            pokemonInfo.foto = `${urlImagenes}${agregarCeros(id, 3)}.png`;
 
             return fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
                 .then((res) => res.json())

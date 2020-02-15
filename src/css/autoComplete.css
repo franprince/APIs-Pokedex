@@ -1,0 +1,117 @@
+#autoComplete_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#autoComplete {
+  padding: 0 .05rem 0 0.5rem;
+  height: 4rem;
+  width: 100%;
+  font-size: 2rem;
+  outline: 1px;
+  color: rgba(255, 255, 255, 0);
+  transition: all 0.4s ease;
+  -webkit-transition: all -webkit-transform 0.4s ease;
+  text-overflow: ellipsis;
+}
+
+#autoComplete::placeholder {
+  color: rgba(255, 122, 122, 0);
+  transition: all 0.3s ease;
+}
+
+#autoComplete:hover::placeholder {
+  color: rgba(255, 122, 122, 0.3);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+#autoComplete:focus::placeholder {
+  font-size: 1rem;
+  color: rgba(255, 122, 122, 0.3);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+#autoComplete::selection {
+  color: transparent;
+}
+
+#autoComplete:focus::selection {
+  color: #fff;
+  background-color: rgba(255, 122, 122, 1);
+}
+
+#autoComplete:focus {
+  padding: 0 1rem 0 1rem;
+  color: rgba(255, 122, 122, 1);
+  height: 4rem;
+  width: 100%;
+  border: 0.05rem solid rgb(255, 122, 122);
+  box-shadow: rgba(255, 122, 122, 0.1) 0px 0px 20px 5px;
+}
+
+#autoComplete_list {
+  position: fixed;
+  z-index: 1000;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all -webkit-transform 0.1s ease;
+}
+
+.autoComplete_result {
+  padding: 0.6rem;
+  width: 100%;
+  border: 0.05rem solid #e3e3e3;
+  list-style: none;
+  text-align: left;
+  font-size: 1.1rem;
+  color: rgb(123, 123, 123);
+  transition: all 0.1s ease-in-out;
+  background-color: #fff;
+}
+
+.autoComplete_result::selection {
+  color: rgba(#ffffff, 0);
+  background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_result:last-child {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.autoComplete_result:hover {
+  cursor: pointer;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.autoComplete_result:focus {
+  outline: none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.autoComplete_highlighted {
+  opacity: 1;
+  color: rgba(255, 122, 122, 1);
+  font-weight: bold;
+}
+
+.autoComplete_highlighted::selection {
+  color: rgba(#ffffff, 0);
+  background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_selected {
+  cursor: pointer;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+#pokemon-list{
+  padding: 0;
+}

@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es6": true,
         "jquery": true
     },
@@ -12,10 +13,13 @@
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "ecmaVersion": 2018
     },
     "rules": {
-        "indent": ["2", "tab"]
+        "indent": [2, "tab"],
+        "no-tabs": 0,
+        "import/extensions": ["error", "ignorePackages", {
+            "js": "always"
+        }]
     }
 }

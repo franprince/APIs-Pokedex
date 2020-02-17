@@ -9,6 +9,6 @@ import autoComplete from './modules/autocomplete.js';
 //   }
 // };
 
-$(() => {
+$(document).ready(() => { 
 	$('[data-toggle="tooltip"]').tooltip();
 });

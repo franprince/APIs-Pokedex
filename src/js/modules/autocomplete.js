@@ -1,6 +1,5 @@
 /* eslint-disable no-new */
-import obtenerInfoDelPokemonSeleccionado from './fetchinfo.js';
-import { urlPokemon } from './ui.js';
+import { obtenerInfoDelPokemonSeleccionado, urlPokemon } from './fetchinfo.js';
 
 const offset = 0;
 const limite = 807;

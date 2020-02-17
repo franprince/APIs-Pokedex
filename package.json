@@ -13,7 +13,8 @@
     "@tarekraafat/autocomplete.js": "^7.2.0",
     "bootstrap": "^4.4.1",
     "http-server": "^0.12.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "tippy.js": "^5.2.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.31",

@@ -9,10 +9,9 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado) {
 	const fotoPokemon = $('<img id="foto-pokemon" src="./src/img/loading.gif" class="card-img-top" alt="">');
 	const containerInfo = $('<div id="container-info" class="col-md-8 mt-5 ml-auto"></div>');
 	const containerPesoAltura = $('<div id="container-peso-altura" class="col-md-11 ml-auto mt-0"></div>');
-	const containerDescripcion = $('<div id="container-descripcion" class="col-md-11 ml-auto mt-0">Cargando...</div>')
+	const containerDescripcion = $('<div id="container-descripcion" class="col-md-11 ml-auto mt-0"><p class="titulo">Descripción:</p></div>')
 	const pesoPokemon = $('<div id="pesoPokemon" class="text-left pt-3 col-6">Cargando...</div>');
 	const alturaPokemon = $('<div id="alturaPokemon" class="col-6 text-left">Cargando...</div>');
-	const descripcionPokemon = $('<div id="container-descripcion" class="col-md-6 mt-5">Cargando...</div>');
 
 
 	if ($('#container-pokemon')) {
@@ -38,19 +37,7 @@ function mostrarPokemonSeleccionado(pokemonSeleccionado) {
 	containerPesoAltura.append(pesoPokemon);
 	pesoPokemon.html(`<strong>Peso:</strong> ${pokemonSeleccionado.peso} kg`);
 	containerInfo.append(containerDescripcion);
-	containerDescripcion.text(pokemonSeleccionado.descripcion);
-
+	containerDescripcion.append(`<p>${pokemonSeleccionado.descripcion}</p>`);
 }
 
 export default mostrarPokemonSeleccionado;
-
-// containerPokemon.append(nombrePokemon);
-// containerPokemon.append(containerPesoAlturaDescripcion);
-// containerPesoAlturaDescripcion.append(containerPesoAltura);
-// containerPesoAltura.append(pesoPokemon);
-// pesoPokemon.html(`<strong>Peso:</strong> ${pokemonSeleccionado.peso} kg`);
-// containerPesoAltura.append(alturaPokemon);
-// alturaPokemon.html(`<strong>Altura:</strong> ${pokemonSeleccionado.altura} cm`);
-// containerPesoAlturaDescripcion.append($('<hr/>'));
-// containerPesoAlturaDescripcion.append(descripcionPokemon);
-// descripcionPokemon.text(pokemonSeleccionado.descripcion);

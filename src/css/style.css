@@ -16,6 +16,9 @@
   height: auto;
   padding: 2rem;
 }
+.jumbotron .container{
+  margin-bottom: -1rem !important;
+}
 
 #container-badge-tipo-pokemon {
   position: absolute;
@@ -35,7 +38,6 @@
 }
 #container-principal h2{
   color: #2CA4E8;
-
 }
 
 #foto-pokemon{
@@ -56,6 +58,10 @@
   transform: matrix(1, 0, 0, 1, 0, -10);
 }
 
+.jumbotron.container{
+  margin-bottom: -3rem;
+}
+
 #container-peso-altura{
   margin-top: 2rem;
   box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
@@ -68,6 +74,7 @@
 #container-peso-altura strong{
   color: #fff;
 }
+
 #container-descripcion{
   margin-top: 2rem;
   box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
@@ -77,9 +84,16 @@
   height: fit-content;
   padding: 2rem;
 }
+#container-descripcion .titulo{
+  color: #fff;
+  font-weight: bold;
+}
 .jumbotron{
   background-color: #2CA4E8;
   padding: 0.5rem;
+  border-radius: 0;
+  box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.5);
+
 }
 .jumbotron h1{
   color: #fff;
@@ -97,9 +111,18 @@
 .jumbotron .container{
   margin: 0.5rem auto 1rem auto;
 }
+.search-pokebola{
+  background-image: url("../img/pokebola.png");
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: relative;
+  top: -57px;
+  left: 5px;
+}
 
 #autoComplete {
-  padding: 0 .05rem 0 0.5rem;
+  padding: 0 0.5rem 0 3.8rem;
   height: 4rem;
   width: 100%;
   font-size: 2rem;
@@ -139,7 +162,7 @@
 }
 
 #autoComplete:focus {
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem 0 4.rem;
   color: rgb(74, 171, 228);
   height: 4rem;
   width: 100%;
@@ -205,4 +228,5 @@
   cursor: pointer;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
+  background-color: rgba(#2CA4E8, 0.5) !important;
 }

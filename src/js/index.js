@@ -8,7 +8,3 @@ import autoComplete from './modules/autocomplete.js';
 //     obtenerInfoDelPokemonSeleccionado(e.target.id);
 //   }
 // };
-
-$(document).ready(() => { 
-	$('[data-toggle="tooltip"]').tooltip();
-});

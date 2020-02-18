@@ -49,7 +49,6 @@ function obtenerInfoDelPokemonSeleccionado(id) {
 				return false;
 			});
 			mostrarPokemonSeleccionado(pokemonInfo);
-			await console.log(pokemonInfo);
 		})
 		.catch((error) => console.error('Hubo un error: ', error));
 }

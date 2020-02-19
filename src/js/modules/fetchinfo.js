@@ -1,5 +1,5 @@
 import mostrarPokemonSeleccionado from './ui.js';
-import { agregarCeros } from './utils.js';
+import { agregarCeros, capitalize } from './utils.js';
 
 const urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
 
@@ -36,23 +36,29 @@ function obtenerInfoDelPokemonSeleccionado(id) {
     tipos: [],
     foto: '',
   };
+  obtenerDescripcion(id).then((resultadoDescripcion) => {
+    pokemonInfo.descripcion = resultadoDescripcion;
+  })
+  .catch(err => {
+    console.log(err);
+  });
   pokemonInfo.foto = obtenerFotoPokemon(id);
   obtenerInfoPokemon(id).then((pokemon) => {
     pokemonInfo.id = pokemon.id;
     pokemonInfo.nombre = pokemon.name;
     pokemon.abilities.forEach((habilidad) => {
-      pokemonInfo.habilidades.push(habilidad.ability.name);
+      pokemonInfo.habilidades.push(capitalize(habilidad.ability.name));
     });
     pokemonInfo.altura = pokemon.height * 10;
     pokemonInfo.peso = pokemon.weight / 10;
     pokemon.types.forEach((tipo) => {
       pokemonInfo.tipos.push(tipo.type.name);
     });
-  });
-  obtenerDescripcion(id).then((resultadoDescripcion) => {
-    pokemonInfo.descripcion = resultadoDescripcion;
     mostrarPokemonSeleccionado(pokemonInfo)
   })
+  .catch(err => {
+    console.log(err);
+  });
 }
 
 export { obtenerInfoDelPokemonSeleccionado, urlPokemon };

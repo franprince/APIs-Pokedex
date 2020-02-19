@@ -119,6 +119,14 @@
   position: relative;
   top: -57px;
   left: 5px;
+  transition: transform 0.1s;
+}
+.search-pokebola:hover{
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 
 #autoComplete {
@@ -135,7 +143,7 @@
 }
 
 #autoComplete::placeholder {
-  color: rgba(255, 122, 122, 0);
+  color: rgba(74, 171, 228, 0.8);
   transition: all 0.3s ease;
 }
 

@@ -1,5 +1,5 @@
 import mostrarPokemonSeleccionado from './ui.js';
-import agregarCeros from './utils.js';
+import { agregarCeros } from './utils.js';
 
 const urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
 
@@ -18,6 +18,7 @@ async function obtenerInfoPokemon(idPokemon) {
   const pokemon = await res.json();
   return pokemon;
 }
+
 function obtenerFotoPokemon(idPokemon) {
   const urlImagenes = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
   const fotoPokemon = `${urlImagenes}${agregarCeros(idPokemon, 3)}.png`;
@@ -35,7 +36,7 @@ function obtenerInfoDelPokemonSeleccionado(id) {
     tipos: [],
     foto: '',
   };
-
+  pokemonInfo.foto = obtenerFotoPokemon(id);
   obtenerInfoPokemon(id).then((pokemon) => {
     pokemonInfo.id = pokemon.id;
     pokemonInfo.nombre = pokemon.name;
@@ -50,10 +51,8 @@ function obtenerInfoDelPokemonSeleccionado(id) {
   });
   obtenerDescripcion(id).then((resultadoDescripcion) => {
     pokemonInfo.descripcion = resultadoDescripcion;
-  }).then(
-    mostrarPokemonSeleccionado(pokemonInfo),
-  );
-  pokemonInfo.foto = obtenerFotoPokemon(id);
+    mostrarPokemonSeleccionado(pokemonInfo)
+  })
 }
 
 export { obtenerInfoDelPokemonSeleccionado, urlPokemon };

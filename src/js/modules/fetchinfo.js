@@ -36,12 +36,6 @@ function obtenerInfoDelPokemonSeleccionado(id) {
     tipos: [],
     foto: '',
   };
-  obtenerDescripcion(id).then((resultadoDescripcion) => {
-    pokemonInfo.descripcion = resultadoDescripcion;
-  })
-  .catch(err => {
-    console.log(err);
-  });
   pokemonInfo.foto = obtenerFotoPokemon(id);
   obtenerInfoPokemon(id).then((pokemon) => {
     pokemonInfo.id = pokemon.id;
@@ -54,7 +48,10 @@ function obtenerInfoDelPokemonSeleccionado(id) {
     pokemon.types.forEach((tipo) => {
       pokemonInfo.tipos.push(tipo.type.name);
     });
-    mostrarPokemonSeleccionado(pokemonInfo)
+    obtenerDescripcion(id).then((resultadoDescripcion) => {
+      pokemonInfo.descripcion = resultadoDescripcion;
+      mostrarPokemonSeleccionado(pokemonInfo)
+    })
   })
   .catch(err => {
     console.log(err);

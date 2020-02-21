@@ -23,17 +23,18 @@ async function obtenerCategoria(url, idioma = "es") {
   return false;
 }
 
+async function obtenerNombreHabilidad(url, idioma = "es") {
+  const res = await fetch(url);
+  const abilities = await res.json();
+  const habilidad = abilities.names.find((ability) => ability.language.name === idioma);
+  if (habilidad) {
+    return habilidad.name;
+  }
+  return false;
+}
+
 async function obtenerHabilidades(arrayHabilidades) {
   const habilidades = [];
-  async function obtenerNombreHabilidad(url, idioma = "es") {
-    const res = await fetch(url);
-    const abilities = await res.json();
-    const habilidad = abilities.names.find((ability) => ability.language.name === idioma);
-    if (habilidad) {
-      return habilidad.name;
-    }
-    return false;
-  }
   arrayHabilidades.forEach(async element => {
     await obtenerNombreHabilidad(element.ability.url).then((habilidad) => habilidades.push(habilidad));
   });

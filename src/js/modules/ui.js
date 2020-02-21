@@ -40,9 +40,9 @@ function mostrarPokemonSeleccionado(infoBase, desCat, foto, habilidades) {
   containerInfo.append(divInfoRowClass);
   divInfoRowClass.append(containerInfoTop1);
   containerInfoTop1.append(alturaPokemon);
-  alturaPokemon.html(`<strong>Altura:</strong> ${infoBase.height} cm`);
+  alturaPokemon.html(`<strong>Altura:</strong> ${infoBase.height * 10} cm`);
   containerInfoTop1.append(pesoPokemon);
-  pesoPokemon.html(`<strong>Peso:</strong> ${infoBase.weight} kg`);
+  pesoPokemon.html(`<strong>Peso:</strong> ${infoBase.weight / 10} kg`);
   divInfoRowClass.append(containerInfoTop2);
   containerInfoTop2.append(habilidadesPokemon);
   habilidadesPokemon.html(`<strong>Habilidades:</strong> ${habilidades.join(', ')}`);

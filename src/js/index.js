@@ -1,5 +1,5 @@
 //este modulo es una herramienta escrita por un tercero, no intervine el codigo.
-import { obtenerInfoDelPokemonSeleccionado, urlPokemon } from './modules/fetchinfo.js';
+import { obtenerYEnviarInfo, urlBase } from './modules/fetchinfo.js';
 
 const offset = 0;
 const limite = 807;
@@ -8,7 +8,7 @@ new autoComplete({
   data: { // Data src [Array, Function, Async] | (REQUIRED)
     src: async () => {
       // Fetch External Data Source
-      const source = await fetch(`${urlPokemon}?offsset=${offset}&limit=${limite}`);
+      const source = await fetch(`${urlBase}?offsset=${offset}&limit=${limite}`);
       // Format data into JSON
       const data = await source.json();
       // Return Fetched data
@@ -44,6 +44,6 @@ new autoComplete({
     element: 'li',
   },
   onSelection: (feedback) => { // Action script onSelection event | (Optional)
-    obtenerInfoDelPokemonSeleccionado(feedback.selection.index + 1);
+    obtenerYEnviarInfo(feedback.selection.index + 1);
   },
 });

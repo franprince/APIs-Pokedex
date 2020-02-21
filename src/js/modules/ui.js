@@ -1,6 +1,6 @@
 import { agregarCeros, capitalize } from './utils.js';
 
-function mostrarPokemonSeleccionado(infoPokemonSeleccionado) {
+function mostrarPokemonSeleccionado(infoBase, desCat, foto, habilidades) {
   const divRowClass = $('<div class="row"></div>');
   const divInfoRowClass = $('<div class="row indo"></div>');
   const containerPokemon = $('<div id="container-pokemon" class="mt-5 col-md-4"></div>');
@@ -24,32 +24,32 @@ function mostrarPokemonSeleccionado(infoPokemonSeleccionado) {
 
   $('#container-principal').append(nombrePokemon);
   $('#container-principal').append(divRowClass);
-  nombrePokemon.text(`${infoPokemonSeleccionado.nombre} - #${agregarCeros(infoPokemonSeleccionado.id, 3)}`);
+  nombrePokemon.text(`${infoBase.name} - #${agregarCeros(infoBase.id, 3)}`);
   containerPokemon.append(containerBadgeTipoPokemon);
 
-  for (let i = 0; i < infoPokemonSeleccionado.tipos.length; i += 1) {
-    const tipoPokemon = infoPokemonSeleccionado.tipos[i];
+  for (let i = 0; i < infoBase.types.length; i += 1) {
+    const tipoPokemon = infoBase.types[i].type.name;
     const imgSrc = `./src/img/pokemon-types/${tipoPokemon}.png`;
-    containerBadgeTipoPokemon.append($(`<img class="icon ${tipoPokemon}" alt="tipo ${tipoPokemon}" title="${capitalize(tipoPokemon)}" src="${imgSrc}"/>`));
+    containerBadgeTipoPokemon.append($(`<img class="icon ${tipoPokemon}" alt="tipo ${tipoPokemon}" title="${tipoPokemon}" src="${imgSrc}"/>`));
   }
   divRowClass.append(containerPokemon);
   containerPokemon.append(containerFotoPokemon);
   containerFotoPokemon.append(fotoPokemon);
-  fotoPokemon.attr('src', infoPokemonSeleccionado.foto);
+  fotoPokemon.attr('src', foto);
   divRowClass.append(containerInfo);
   containerInfo.append(divInfoRowClass);
   divInfoRowClass.append(containerInfoTop1);
   containerInfoTop1.append(alturaPokemon);
-  alturaPokemon.html(`<strong>Altura:</strong> ${infoPokemonSeleccionado.altura} cm`);
+  alturaPokemon.html(`<strong>Altura:</strong> ${infoBase.height} cm`);
   containerInfoTop1.append(pesoPokemon);
-  pesoPokemon.html(`<strong>Peso:</strong> ${infoPokemonSeleccionado.peso} kg`);
+  pesoPokemon.html(`<strong>Peso:</strong> ${infoBase.weight} kg`);
   divInfoRowClass.append(containerInfoTop2);
   containerInfoTop2.append(habilidadesPokemon);
-  habilidadesPokemon.html(`<strong>Habilidades:</strong> ${infoPokemonSeleccionado.habilidades.esp.join(', ')}`);
+  habilidadesPokemon.html(`<strong>Habilidades:</strong> ${habilidades.join(', ')}`);
   containerInfoTop2.append(categoriaPokemon);
-  categoriaPokemon.html(`<strong>Categoría:</strong> ${infoPokemonSeleccionado.categoria}`);
+  categoriaPokemon.html(`<strong>Categoría:</strong> ${desCat[1]}`);
   containerInfo.append(containerInfoBottom);
-  containerInfoBottom.append(`<p>${infoPokemonSeleccionado.descripcion}</p>`);
+  containerInfoBottom.append(`<p>${desCat[0]}</p>`);
 }
 
 export default mostrarPokemonSeleccionado;

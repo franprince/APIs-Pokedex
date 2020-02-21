@@ -1,5 +1,7 @@
 //este modulo es una herramienta escrita por un tercero, no intervine el codigo.
-import { obtenerYEnviarInfo, urlBase } from './modules/fetchinfo.js';
+import { obtenerInfo, urlBase } from './modules/fetchinfo.js';
+
+import mostrarPokemonSeleccionado from './modules/ui.js';
 
 const offset = 0;
 const limite = 807;
@@ -43,7 +45,9 @@ new autoComplete({
     },
     element: 'li',
   },
-  onSelection: (feedback) => { // Action script onSelection event | (Optional)
-    obtenerYEnviarInfo(feedback.selection.index + 1);
+  onSelection: async (feedback) => { // Action script onSelection event | (Optional)
+    const data = await obtenerInfo(feedback.selection.index + 1);
+    console.log(data);
+    mostrarPokemonSeleccionado(data);
   },
 });

@@ -1,6 +1,6 @@
 import { agregarCeros, capitalize } from './utils.js';
 
-function mostrarPokemonSeleccionado(infoPokemonSeleccionado) {
+function mostrarPokemonSeleccionado(infoBase, descripcion, foto) {
   const divRowClass = $('<div class="row"></div>');
   const containerPokemon = $('<div id="container-pokemon" class="mt-5 col-md-4"></div>');
   const nombrePokemon = $('<h2 id="nombre-pokemon" class="pt-3 text-capitalize text-center">Cargando...</h2>');
@@ -20,26 +20,26 @@ function mostrarPokemonSeleccionado(infoPokemonSeleccionado) {
 
   $('#container-principal').append(nombrePokemon);
   $('#container-principal').append(divRowClass);
-  nombrePokemon.text(`${infoPokemonSeleccionado.nombre} - #${agregarCeros(infoPokemonSeleccionado.id, 3)}`);
+  nombrePokemon.text(`${infoBase.name} - #${agregarCeros(infoBase.id, 3)}`);
   containerPokemon.append(containerBadgeTipoPokemon);
 
-  for (let i = 0; i < infoPokemonSeleccionado.tipos.length; i += 1) {
-    const tipoPokemon = infoPokemonSeleccionado.tipos[i];
+  for (let i = 0; i < infoBase.types.length; i += 1) {
+    const tipoPokemon = infoBase.types[i].type.name;
     const imgSrc = `./src/img/pokemon-types/${tipoPokemon}.png`;
-    containerBadgeTipoPokemon.append($(`<img class="icon ${tipoPokemon}" alt="tipo ${tipoPokemon}" title="${capitalize(tipoPokemon)}" src="${imgSrc}"/>`));
+    containerBadgeTipoPokemon.append($(`<img class="icon ${tipoPokemon}" alt="tipo ${tipoPokemon}" title="${tipoPokemon}" src="${imgSrc}"/>`));
   }
   divRowClass.append(containerPokemon);
   containerPokemon.append(containerFotoPokemon);
   containerFotoPokemon.append(fotoPokemon);
-  fotoPokemon.attr('src', infoPokemonSeleccionado.foto);
+  fotoPokemon.attr('src', foto);
   divRowClass.append(containerInfo);
   containerInfo.append(containerInfoTop);
   containerInfoTop.append(alturaPokemon);
-  alturaPokemon.html(`<strong>Altura:</strong> ${infoPokemonSeleccionado.altura} cm`);
+  alturaPokemon.html(`<strong>Altura:</strong> ${infoBase.height * 10} cm`);
   containerInfoTop.append(pesoPokemon);
-  pesoPokemon.html(`<strong>Peso:</strong> ${infoPokemonSeleccionado.peso} kg`);
+  pesoPokemon.html(`<strong>Peso:</strong> ${infoBase.weight / 10} kg`);
   containerInfo.append(containerInfoBottom);
-  containerInfoBottom.append(`<p>${infoPokemonSeleccionado.descripcion}</p>`);
+  containerInfoBottom.append(`<p>${descripcion}</p>`);
 }
 
 export default mostrarPokemonSeleccionado;

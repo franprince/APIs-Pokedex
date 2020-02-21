@@ -1,20 +1,39 @@
 import mostrarPokemonSeleccionado from './ui.js';
-import { agregarCeros, capitalize } from './utils.js';
+import { agregarCeros } from './utils.js';
 
-const urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
+const urlBase = 'https://pokeapi.co/api/v2/pokemon';
 
-async function obtenerDescripcion(idPokemon) {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${idPokemon}`);
+async function obtenerDescripcion(url, idioma = "es") {
+  const res = await fetch(url);
   const pokemonSpecies = await res.json();
-  const flavorText = pokemonSpecies.flavor_text_entries.find((flavor) => flavor.language.name === 'es');
-  if (flavorText) {
-    return flavorText.flavor_text;
+  const descripcion = pokemonSpecies.flavor_text_entries.find((flavor) => flavor.language.name === idioma);
+  if (descripcion) {
+    return descripcion.flavor_text;
   }
-  return 'No se encontró una descripción en español';
+  return false;
+}
+
+async function obtenerNombreHabilidad(url, idioma = "es") {
+  const res = await fetch(url);
+  const abilities = await res.json();
+  const habilidad = abilities.name.find((ability) => ability.language.name === idioma);
+  if (habilidad) {
+    return habilidad.name;
+  }
+  return false;
+}
+async function obtenerNombreMovimientos(url, idioma = "es") {
+  const res = await fetch(url);
+  const moves = await res.json();
+  const movimiento = moves.name.find((move) => move.language.name === idioma);
+  if (movimiento) {
+    return movimiento.name;
+  }
+  return false;
 }
 
 async function obtenerInfoPokemon(idPokemon) {
-  const res = await fetch(`${urlPokemon}/${idPokemon}`);
+  const res = await fetch(`${urlBase}/${idPokemon}`);
   const pokemon = await res.json();
   return pokemon;
 }
@@ -25,37 +44,21 @@ function obtenerFotoPokemon(idPokemon) {
   return fotoPokemon;
 }
 
-function obtenerInfoDelPokemonSeleccionado(id) {
-  const pokemonInfo = {
-    id: null,
-    nombre: '',
-    descripcion: '',
-    habilidades: [],
-    altura: null,
-    peso: null,
-    tipos: [],
-    foto: '',
-  };
-  pokemonInfo.foto = obtenerFotoPokemon(id);
-  obtenerInfoPokemon(id).then((pokemon) => {
-    pokemonInfo.id = pokemon.id;
-    pokemonInfo.nombre = pokemon.name;
-    pokemon.abilities.forEach((habilidad) => {
-      pokemonInfo.habilidades.push(capitalize(habilidad.ability.name));
-    });
-    pokemonInfo.altura = pokemon.height * 10;
-    pokemonInfo.peso = pokemon.weight / 10;
-    pokemon.types.forEach((tipo) => {
-      pokemonInfo.tipos.push(tipo.type.name);
-    });
-    obtenerDescripcion(id).then((resultadoDescripcion) => {
-      pokemonInfo.descripcion = resultadoDescripcion;
-      mostrarPokemonSeleccionado(pokemonInfo)
+function obtenerYEnviarInfo(id) {
+
+  obtenerInfoPokemon(id).then((infoBase) => {
+
+    console.log(infoBase);
+
+    obtenerDescripcion(infoBase.species.url).then((descripcion) => {
+
+      mostrarPokemonSeleccionado(infoBase, descripcion, obtenerFotoPokemon(id))
+
     })
   })
-  .catch(err => {
-    console.log(err);
-  });
-}
+    .catch(err => {
+      console.log(err);
+    });
+};
 
-export { obtenerInfoDelPokemonSeleccionado, urlPokemon };
+export { obtenerYEnviarInfo, urlBase };

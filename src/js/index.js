@@ -1,7 +1,7 @@
 
 import { obtenerInfo, urlBase } from './modules/fetchinfo.js';
 
-import mostrarPokemonSeleccionado from './modules/ui.js';
+import mostrarPokemonSeleccionado from './modules/ui/uihandler.js';
 
 const offset = 0;
 const limite = 807;

@@ -41,7 +41,7 @@
 }
 
 #foto-pokemon{
-  max-width: 300px;
+  width: 100%;
   margin: 0 auto;
   transition: transform 0.2s;
   transform: matrix(1, 0, 0, 1, 0, 0);

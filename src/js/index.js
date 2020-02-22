@@ -1,12 +1,13 @@
-
 import { obtenerInfo, urlBase } from './modules/fetchinfo.js';
 
 import mostrarPokemonSeleccionado from './modules/ui/uihandler.js';
 
 const offset = 0;
 const limite = 807;
+const $idioma = document.querySelector('.selectpicker');
 
 //Este módulo es una herramienta escrita por un tercero, no intervine el código.
+
 new autoComplete({
   data: { 
     src: async () => {
@@ -47,7 +48,7 @@ new autoComplete({
     element: 'li',
   },
   onSelection: async (feedback) => {
-    const data = await obtenerInfo(feedback.selection.index + 1);
-    mostrarPokemonSeleccionado(data);
+    const data = await obtenerInfo(feedback.selection.index + 1, $idioma.value);
+    mostrarPokemonSeleccionado(data, $idioma.value);
   },
 });

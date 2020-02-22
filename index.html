@@ -8,13 +8,21 @@
 
   <title>Pokedex</title>
   <link rel='icon' href='favicon.ico' type='image/x-icon' />
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./src/css/style.css">
 
 </head>
 
 <body>
   <div class="jumbotron">
+    <select class="selectpicker" data-width="fit">
+      <option data-content='<span class="flag-icon flag-icon-es">Español</span>' value="es">Español</option>
+      <option data-content='<span class="flag-icon flag-icon-us"></span>' value="en">English</option>
+      <option data-content='<span class="flag-icon flag-icon-ja"></span>' value="ja">日本語</option>
+      <option data-content='<span class="flag-icon flag-icon-fr"></span>' value="fr">Français</option>
+      <option data-content='<span class="flag-icon flag-icon-de"></span>' value="de">Deutsch</option>
+    </select>
     <h1 class="display-3">Pokémon Search</h1>
     <div class="container">
       <input id="autoComplete" class="form-control mr-sm-2" type="search" placeholder="Comenzá la búsqueda"

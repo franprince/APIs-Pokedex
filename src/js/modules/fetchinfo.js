@@ -14,7 +14,7 @@ function obtenerFoto(id) {
   return foto;
 }
 
-async function obtenerHabilidades(arrayHabilidades) {
+async function obtenerHabilidades(arrayHabilidades, idioma) {
   const habilidades = [];
   async function obtenerNombreHabilidad(url, idioma = "es") {
     const res = await fetch(url);
@@ -26,7 +26,7 @@ async function obtenerHabilidades(arrayHabilidades) {
     return false;
   }
   arrayHabilidades.forEach(async (element) => {
-    const habilidad = await obtenerNombreHabilidad(element.ability.url);
+    const habilidad = await obtenerNombreHabilidad(element.ability.url, idioma);
     habilidades.push(habilidad)
   });
   return habilidades;
@@ -52,18 +52,18 @@ async function obtenerDescripcion(url, idioma = "es") {
   return false;
 }
 
-async function obtenerInfo(id) {
+async function obtenerInfo(id, idioma) {
   const data = {};
 
   data.base = await obtenerInfoBase(id);
 
   data.foto = obtenerFoto(id);
 
-  data.habilidades = await obtenerHabilidades(data.base.abilities);
+  data.habilidades = await obtenerHabilidades(data.base.abilities, idioma);
 
-  data.descripcion = await obtenerDescripcion(data.base.species.url);
+  data.descripcion = await obtenerDescripcion(data.base.species.url, idioma);
 
-  data.categoria = await obtenerCategoria(data.base.species.url);
+  data.categoria = await obtenerCategoria(data.base.species.url, idioma);
 
   return data;
 }

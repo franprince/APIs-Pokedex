@@ -4,7 +4,7 @@ function crearContainerDescripcion(idiomaSeleccionado, descripcion) {
     
     $('#container-info').append(divDescRowClass);
     (divDescRowClass).append(containerInfoBottom);
-    containerInfoBottom.html(`<p>${idiomaSeleccionado.descripcion}:</p>`)
+    containerInfoBottom.html(`<strong>${idiomaSeleccionado.descripcion}:</strong>`)
     containerInfoBottom.append(`<p>${descripcion}</p>`);
 }
 

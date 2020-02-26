@@ -178,7 +178,7 @@
 }
 
 #pokemon-list {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   padding: 0;
   left: 0;
